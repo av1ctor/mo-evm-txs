@@ -124,6 +124,13 @@ module EIP2930 {
                     } else {
                       "01"
                     };
+                    return #ok({
+                        tx
+                        with
+                        v = v;
+                        r = r;
+                        s = s;
+                    });
                 };
             };
         };
