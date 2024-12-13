@@ -126,14 +126,15 @@ module EIP1559 {
                 } else {
                   "01"
                 };
+                return #ok({
+                    tx
+                    with
+                    v = v;
+                    r = r;
+                    s = s;
+                });
             };
-            return #ok({
-                tx
-                with
-                v = v;
-                r = r;
-                s = s;
-            });
+            
         };
     };
 
