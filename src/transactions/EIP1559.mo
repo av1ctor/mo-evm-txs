@@ -119,6 +119,7 @@ module EIP1559 {
             //to whom it may concern. 0 is to be rlp encoded as 80 or 'Empty' where as 1 gets encoded as 8101. Don't ask me why. It took me 5 hours to figure out. If you try to put "00" here it will out put "00" and you'll get errors that v can't start with 00
             //to find the y parity bit from a compressed key you can take the first byte and subtract 2.  see https://bitcoin.stackexchange.com/questions/96848/in-compressed-public-keys-is-the-2-or-3-the-parity-or-the-sign
             //I believe that this code assumes a compressed key as the previous call to the Helper.getRecoveryId checked for 33 bytes
+            //This looks to apply to eip 1559 and 2930 transactions, but not to legacy which still need chain id encoded into them.
             case (#ok(message)) {
                 let v = if(publicKey[0] == 2) {
                   ""
